@@ -1,0 +1,22 @@
+{
+  "name": "links-crud",
+  "version": "1.0.0",
+  "description": "CRUD App to save \"Links\" - Made with NodeJS - ExpressJS - PassportJS - MongoDB ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jethrinfox/links-crud.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "Felipe Malacarne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jethrinfox/links-crud/issues"
+  },
+  "homepage": "https://github.com/jethrinfox/links-crud#readme"
+}
