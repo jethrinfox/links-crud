@@ -1,22 +1,39 @@
 {
-  "name": "links-crud",
-  "version": "1.0.0",
-  "description": "CRUD App to save \"Links\" - Made with NodeJS - ExpressJS - PassportJS - MongoDB ",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jethrinfox/links-crud.git"
-  },
-  "keywords": [
-    "nodejs"
-  ],
-  "author": "Felipe Malacarne",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jethrinfox/links-crud/issues"
-  },
-  "homepage": "https://github.com/jethrinfox/links-crud#readme"
+	"name": "links-crud",
+	"version": "1.0.0",
+	"description": "CRUD App to save \"Links\" - Made with NodeJS - ExpressJS - PassportJS - MongoDB ",
+	"main": "index.js",
+	"scripts": {
+		"start": "nodemon"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jethrinfox/links-crud.git"
+	},
+	"keywords": [
+		"nodejs"
+	],
+	"author": "Felipe Malacarne",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/jethrinfox/links-crud/issues"
+	},
+	"homepage": "https://github.com/jethrinfox/links-crud#readme",
+	"devDependencies": {
+		"nodemon": "^2.0.4"
+	},
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"connect-mongo": "^3.2.0",
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"express-flash": "0.0.2",
+		"express-handlebars": "^5.1.0",
+		"express-session": "^1.17.1",
+		"mongoose": "^5.9.24",
+		"morgan": "^1.10.0",
+		"passport": "^0.4.1",
+		"passport-local": "^1.0.0",
+		"timeago.js": "^4.0.2"
+	}
 }
