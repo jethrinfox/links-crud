@@ -11,17 +11,13 @@ router.get('/signup', (req, res) => {
     res.render('auth/signup')
 })
 
-router.get('/signin', (req, res) => {
-    res.render('auth/signin')
-})
-
-router.get('/profile', isLoggedIn, (req, res) => {
-    res.render('profile')
+router.get('/login', (req, res) => {
+    res.render('auth/login')
 })
 
 router.get('/logout', (req, res) => {
     req.logOut()
-    res.redirect('/signin')
+    res.redirect('/login')
 })
 
 
@@ -36,10 +32,10 @@ router.post('/signup',
     })
 )
 
-router.post('/signin', (req, res, next) => {
-    passport.authenticate('local.signin', {
+router.post('/login', (req, res, next) => {
+    passport.authenticate('local.login', {
         successRedirect: '/profile',
-        failureRedirect: '/signin',
+        failureRedirect: '/login',
         failureFlash: true
     })(req, res, next)
 })
