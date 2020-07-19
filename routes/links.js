@@ -1,14 +1,16 @@
 const express = require('express');
 const router = express.Router()
-const { db } = require('../lib/db');
+const Link = require('../models/Link')
 
 
 /*
 *   GET ROUTES
 */
 router.get('/', async (req, res) => {
-    //const links = await pool.query('SELECT * FROM links')
-    res.render('links/list')
+    const links = await Link.find({ user_id: req.user._id })
+        .sort({ createdAt: 'desc' })
+        .lean()
+    res.render('links/list', { links })
 })
 
 router.get('/add', (req, res) => {
@@ -18,7 +20,7 @@ router.get('/add', (req, res) => {
 router.get('/delete/:id', async (req, res) => {
     const { id } = req.params
 
-    //await pool.query('DELETE FROM links WHERE id = ?', [id])
+    await Link.remove({ _id: id })
 
     req.flash('success', 'Link removed succesfully')
     res.redirect('/links')
@@ -26,8 +28,8 @@ router.get('/delete/:id', async (req, res) => {
 
 router.get('/edit/:id', async (req, res) => {
     const { id } = req.params
-    //const link = await pool.query('SELECT * FROM links WHERE id = ?', [id])
-    res.render('links/edit')
+    const link = await Link.findById(id)
+    res.render('links/edit', { link })
 })
 
 
@@ -37,10 +39,9 @@ router.get('/edit/:id', async (req, res) => {
 router.post('/add', async (req, res) => {
     const { title, url, description } = req.body
     const newLink = {
-        title, url, description
+        title, url, description, user_id: req.user._id
     }
-
-    //await pool.query('INSERT INTO links set ?', [newLink])
+    await Link.create(newLink)
     req.flash('success', 'Link saved succesfully')
     res.redirect('/links')
 })
@@ -52,7 +53,7 @@ router.post('/edit/:id', async (req, res) => {
         title, url, description
     }
 
-    //await pool.query('UPDATE links SET ? WHERE id = ?', [updateLink, id])
+    await Link.updateOne({ _id: id }, updateLink)
 
     req.flash('success', 'Link edited succesfully')
     res.redirect('/links')

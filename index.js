@@ -3,27 +3,29 @@
 /*
 * Imports
 */
+require('dotenv').config()
 const express = require('express');
 const morgan = require('morgan');
+const Handlebars = require('handlebars')
 const exphbs = require('express-handlebars');
+const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access')
 const path = require('path');
 const flash = require('express-flash');
 const session = require('express-session');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
-const { db } = require('./lib/db');
 const passport = require('passport');
-require('dotenv').config()
 
 
 /*
-* Initializations
+*   Initializations
 */
 const app = express()
+require('./lib/db')
 require('./lib/passport')
 
 /*
-* Settings
+*   Settings
 */
 app.set('port', process.env.PORT || 3000)
 app.set('views', path.join(__dirname, 'views'))
@@ -32,13 +34,14 @@ app.engine('.hbs', exphbs({
     layoutsDir: path.join(app.get('views'), 'layouts'),
     partialsDir: path.join(app.get('views'), 'partials'),
     extname: '.hbs',
-    helpers: require('./lib/handlebars')
+    helpers: require('./lib/handlebars'),
+    handlebars: allowInsecurePrototypeAccess(Handlebars)
 }))
 app.set('view engine', '.hbs')
 
 
 /*
-* Middlewares
+*   Middlewares
 */
 app.use(session({
     secret: 'nodesession',
@@ -55,7 +58,7 @@ app.use(passport.session())
 
 
 /*
-* Global Variables
+*   Global Variables
 */
 app.use((req, res, next) => {
     app.locals.success = req.flash('success')
@@ -66,7 +69,7 @@ app.use((req, res, next) => {
 
 
 /*
-* Routes
+*   Routes
 */
 app.use(require('./routes'))
 app.use(require('./routes/authentications'))
@@ -74,7 +77,7 @@ app.use('/links', require('./routes/links'))
 
 
 /*
-* Server and public folder initialize
+*   Server and public folder initialize
 */
 app.use(express.static(path.join(__dirname, 'public')))
 app.listen(app.get('port'), () => console.log('Server listening on PORT:', app.get('port')))
