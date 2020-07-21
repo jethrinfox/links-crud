@@ -1,3 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap");
+
 body {
-	font-family: "Montserrat", sans-serif;
+	font-family: "Roboto", sans-serif;
+	background-image: url("/img/bg.jpg");
+	background-position: bottom center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+}
+
+.centered {
+	height: 100%;
+}
+
+.centered > .row {
+	height: 100%;
+	display: grid;
+	place-items: center;
 }
