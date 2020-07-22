@@ -6,6 +6,10 @@
 # dependencies
 /node_modules
 
+#docker compose
+/nginx-conf
+docker-compose.yml
+
 # misc
 .DS_Store
 .env.local
