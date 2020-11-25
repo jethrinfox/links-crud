@@ -50,7 +50,7 @@ app.use(session({
     store: new MongoStore({ mongooseConnection: mongoose.connection })
 }))
 app.use(flash())
-app.use(morgan('dev'))
+app.use(morgan('tiny'))
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(passport.initialize())
