@@ -2,7 +2,7 @@
 
 #### Simple crud app that allows you to store "links" in MongoDB
 
-## ![project main image](https://github.com/jethrinfox/links-crud/links-crud.jpg?raw=true)
+## ![project main image](https://raw.githubusercontent.com/jethrinfox/links-crud/master/links-crud.jpg)
 
 ## Table of contents
 
