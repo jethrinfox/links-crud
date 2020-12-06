@@ -1,39 +1,34 @@
-<div class="container centered">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    <h3>Login</h3>
-                </div>
-                <div class="card-body">
-                    <form action="/login" id="signup-form" method="post" role="form" data-toggle="validator">
-                        <div class="form-group">
-                            <label for="username">Username</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="fas fa-at"></i></div>
-                                </div>
-                                <input type="text" class="form-control" name="username" id="username"
-                                    aria-describedby="helpId" placeholder="Username"
-                                    data-error="Please enter your username" required autofocus>
-                            </div>
-                            <div class="help-block with-errors"></div>
+<div class="centered">
+    <div class="card auth-card">
+        <div class="card-header">
+            <h3>Login</h3>
+        </div>
+        <div class="card-body">
+            <form action="/login" id="signup-form" method="post" role="form" data-toggle="validator">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fas fa-at"></i></div>
                         </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="fas fa-lock"></i></div>
-                                </div>
-                                <input type="password" class="form-control" name="password" id="password"
-                                    placeholder="Password" data-error="Please enter your password" required>
-                            </div>
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        <button type="submit" class="btn btn-success btn-block">SignIn</button>
-                    </form>
+                        <input type="text" class="form-control" name="username" id="username" aria-describedby="helpId"
+                            placeholder="Username" data-error="Please enter your username" required autofocus>
+                    </div>
+                    <div class="help-block with-errors"></div>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="fas fa-lock"></i></div>
+                        </div>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Password"
+                            data-error="Please enter your password" required>
+                    </div>
+                    <div class="help-block with-errors"></div>
+                </div>
+                <button type="submit" class="btn btn-success btn-block">SignIn</button>
+            </form>
         </div>
     </div>
 </div>
